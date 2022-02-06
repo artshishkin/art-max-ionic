@@ -9,13 +9,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PersonInputComponent implements OnInit {
 
+  enteredPersonName: string = '';
+
   constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  onCreatePerson(personName: string) {
-    console.log('Created a person' + personName);
+  onCreatePerson() {
+    console.log('Created a person ' + this.enteredPersonName);
+    this.enteredPersonName = '';
   }
 }
