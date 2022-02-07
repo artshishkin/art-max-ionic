@@ -10,6 +10,8 @@ import {PersonsService} from "./persons.service";
 })
 export class PersonsComponent implements OnInit, OnDestroy {
 
+  isFetching: boolean = false;
+
   personList: string[] = [];
 
   private subs: Subscription[] = [];
@@ -18,9 +20,13 @@ export class PersonsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.personsService.fetchPersons();
-    let subscription = this.personsService.persons$.subscribe(persons => this.personList = persons);
+    let subscription = this.personsService.persons$.subscribe(persons => {
+      this.personList = persons;
+      this.isFetching = false;
+    });
     this.subs.push(subscription);
+    this.isFetching = true;
+    this.personsService.fetchPersons();
   }
 
   onRemovePerson(name: string) {
