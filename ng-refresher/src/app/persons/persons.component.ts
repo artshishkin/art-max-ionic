@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from "rxjs";
+
 import {PersonsService} from "./persons.service";
 
 @Component({
@@ -6,18 +8,25 @@ import {PersonsService} from "./persons.service";
   templateUrl: './persons.component.html',
   styleUrls: ['./persons.component.css']
 })
-export class PersonsComponent implements OnInit {
+export class PersonsComponent implements OnInit, OnDestroy {
 
-  personList: string[];
+  personList: string[] = [];
+
+  private subs: Subscription[] = [];
 
   constructor(private personsService: PersonsService) {
   }
 
   ngOnInit(): void {
-    this.personList = this.personsService.persons;
+    let subscription = this.personsService.persons$.subscribe(persons => this.personList = persons);
+    this.subs.push(subscription);
   }
 
   onRemovePerson(name: string) {
     this.personsService.removePerson(name);
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
   }
 }
