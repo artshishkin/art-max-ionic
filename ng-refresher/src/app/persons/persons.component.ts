@@ -11,10 +11,10 @@ export class PersonsComponent implements OnInit {
   personList: string[];
 
   constructor(private personsService: PersonsService) {
-    this.personList = this.personsService.persons;
   }
 
   ngOnInit(): void {
+    this.personList = this.personsService.persons;
   }
 
 }
