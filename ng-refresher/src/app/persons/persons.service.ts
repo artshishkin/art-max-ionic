@@ -1,15 +1,26 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, map} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonsService {
 
-  private persons = ['Art', 'Kate', 'Arina', 'Nazar'];
+  private persons = [];
   persons$ = new BehaviorSubject<string[]>(this.persons);
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
+  }
+
+  fetchPersons() {
+    this.httpClient
+      .get<any>('https://swapi.dev/api/people')
+      .pipe(map(response => response.results.map(character => character.name)))
+      .subscribe(charactersNames => {
+        this.persons = charactersNames;
+        this.persons$.next(charactersNames);
+      });
   }
 
   addPerson(name: string) {
