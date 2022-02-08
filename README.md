@@ -12,5 +12,11 @@ Ionic - Build iOS, Android &amp; Web Apps with Ionic &amp; Angular - Tutorial fr
 -  `cd ionic-angular-course`
 -  `ionic serve`
 
+####  Section 4: Angular + Ionic
+
+#####  73. Adding & Loading a New Page
+
+-  `ionic generate` -> `page`
+   -  name: `recipes`
 
 
