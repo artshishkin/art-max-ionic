@@ -24,7 +24,6 @@ export class RecipeDetailPage implements OnInit {
         map(recipeId => this.recipesService.getRecipe(recipeId))
       )
       .subscribe(recipe => {
-        console.log(recipe);
         this.recipe = recipe;
       });
   }
