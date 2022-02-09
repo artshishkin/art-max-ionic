@@ -59,3 +59,25 @@ Follow the instruction [Android Development](https://ionicframework.com/docs/dev
    - `ionic capacitor open android`
 3. Choose device and run   
 
+####  Section 6: Debugging
+
+#####  99. Debugging Android Apps
+
+1. Run app in simulator
+   - `ionic capacitor sync`
+   - `ionic capacitor open android`
+   - Run
+   - View Run and Logcat in Android Studio
+   - **or**
+   - `ionic capacitor run android -l --host=192.168.1.154`
+2. In Chrome
+   - `chrome://inspect`
+   - find device -> inspect
+   - Available Dev Tools
+     - Network
+     - Sources
+     - Performance
+     - Memory
+     - Debug
+
+
