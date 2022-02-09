@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 
@@ -11,7 +11,7 @@ import {AlertController} from '@ionic/angular';
   templateUrl: './recipe-detail.page.html',
   styleUrls: ['./recipe-detail.page.scss'],
 })
-export class RecipeDetailPage implements OnInit {
+export class RecipeDetailPage implements OnInit, OnDestroy {
 
   recipe: Recipe;
 
@@ -22,6 +22,9 @@ export class RecipeDetailPage implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log('ngOnInit');
+
     this.activatedRoute.paramMap
       .pipe(
         map(params => params.get('recipeId')),
@@ -30,6 +33,26 @@ export class RecipeDetailPage implements OnInit {
       .subscribe(recipe => {
         this.recipe = recipe;
       });
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter');
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave');
+  }
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
   }
 
   onDeleteRecipe() {
