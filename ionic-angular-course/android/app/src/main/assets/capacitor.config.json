@@ -1,0 +1,6 @@
+{
+	"appId": "net.shyshkin.ionic_course",
+	"appName": "ionic-angular-course",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
