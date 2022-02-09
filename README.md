@@ -52,4 +52,10 @@ Follow the instruction [Android Development](https://ionicframework.com/docs/dev
    - `ionic capacitor open android`
    - Run in Android Studio
 
+#####  89. Running the App on a Real Android Device
+
+1. [Configure on-device developer options](https://developer.android.com/studio/debug/dev-options)
+2. Open Project in Android Studio
+   - `ionic capacitor open android`
+3. Choose device and run   
 
