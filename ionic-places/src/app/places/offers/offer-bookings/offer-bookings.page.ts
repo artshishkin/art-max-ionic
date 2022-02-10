@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-offer-bookings',
@@ -7,9 +10,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class OfferBookingsPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
   }
 
+  onClickBack() {
+    this.navCtrl.navigateBack(['..'], {relativeTo: this.activatedRoute}).then();
+  }
 }
