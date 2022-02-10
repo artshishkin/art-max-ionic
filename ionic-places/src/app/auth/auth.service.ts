@@ -1,0 +1,28 @@
+import {Injectable} from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  private _userIsAuthenticated = false;
+
+  constructor() {
+  }
+
+  get userIsAuthenticated(): boolean {
+    // eslint-disable-next-line no-underscore-dangle
+    return this._userIsAuthenticated;
+  }
+
+  login() {
+    // eslint-disable-next-line no-underscore-dangle
+    this._userIsAuthenticated = true;
+  }
+
+  logout() {
+    // eslint-disable-next-line no-underscore-dangle
+    this._userIsAuthenticated = false;
+  }
+
+}
