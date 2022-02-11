@@ -40,6 +40,19 @@ export class PlaceDetailPage implements OnInit {
     // this.router.navigate(['..']).then();
     // this.navCtrl.navigateBack(['..'], {relativeTo: this.route}).then();
     // this.navCtrl.pop().then();
-    this.modalCtrl.create({component: CreateBookingComponent}).then(modalEl => modalEl.present());
+    this.modalCtrl.create({
+      component: CreateBookingComponent,
+      componentProps: {selectedPlace: this.place}
+    })
+      .then(modalEl => {
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      })
+      .then(resultData => {
+        console.log(resultData.data, resultData.role);
+        if (resultData.role === 'my-confirm') {
+          console.log('CONFIRMED!');
+        }
+      });
   }
 }
