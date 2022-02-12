@@ -21,4 +21,7 @@ export class OffersPage implements OnInit {
     this.offers = this.placesService.places;
   }
 
+  onEdit(offerId: string) {
+    console.log(`Editing item ${offerId}`);
+  }
 }
