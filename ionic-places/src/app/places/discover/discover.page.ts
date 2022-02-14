@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 import {Place} from '../place.model';
 import {PlacesService} from '../places.service';
-import {MenuController} from "@ionic/angular";
 
 @Component({
   selector: 'app-discover',
@@ -12,6 +12,7 @@ import {MenuController} from "@ionic/angular";
 export class DiscoverPage implements OnInit {
 
   places: Place[];
+  listedPlaces: Place[];
 
   constructor(
     private placesService: PlacesService,
@@ -24,6 +25,7 @@ export class DiscoverPage implements OnInit {
 
   ionViewWillEnter() {
     this.places = this.placesService.places;
+    this.listedPlaces = this.places.slice(1);
   }
 
   onOpenMenu() {
