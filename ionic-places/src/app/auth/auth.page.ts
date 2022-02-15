@@ -10,6 +10,8 @@ import {AuthService} from './auth.service';
 })
 export class AuthPage implements OnInit {
 
+  isLoading = false;
+
   constructor(
     private authService: AuthService,
     private router: Router) {
@@ -19,7 +21,12 @@ export class AuthPage implements OnInit {
   }
 
   onLogin() {
+    this.isLoading = true;
     this.authService.login();
-    this.router.navigate(['/']);
+    setTimeout(() => {
+        this.isLoading = false;
+        this.router.navigate(['/']);
+      },
+      1500);
   }
 }
