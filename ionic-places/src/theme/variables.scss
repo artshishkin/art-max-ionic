@@ -63,6 +63,10 @@
   --ion-padding: 14px;
 }
 
+.ios {
+  --ion-color-primary: #5edb1a;
+}
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
