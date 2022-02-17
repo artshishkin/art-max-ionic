@@ -80,4 +80,10 @@ Follow the instruction [Android Development](https://ionicframework.com/docs/dev
      - Memory
      - Debug
 
+####  Section 9: Styling & Theming Ionic Apps
+
+#####  156. Setting All Colors at Once
+
+Use [Color Generator](https://ionicframework.com/docs/theming/color-generator)
+
 
