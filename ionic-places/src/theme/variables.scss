@@ -71,6 +71,11 @@
   --ion-color-primary: #5edb1a;
 }
 
+ion-button {
+  --background: blue;
+  --box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.6);
+}
+
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
