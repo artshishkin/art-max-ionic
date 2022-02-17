@@ -61,6 +61,10 @@
   --ion-color-light-tint: #f5f6f9;
 
   --ion-padding: 14px;
+
+  --ion-toolbar-background: var(--ion-color-primary, black);
+  --ion-toolbar-color: var(--ion-color-primary-contrast)
+
 }
 
 .ios {
