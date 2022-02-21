@@ -44,6 +44,9 @@ export class EditOfferPage implements OnInit {
   }
 
   onEditOffer() {
+    if (this.form.invalid) {
+      return;
+    }
     console.log(this.form.value);
   }
 }
