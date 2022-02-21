@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
 import {LoadingController} from '@ionic/angular';
 
 import {AuthService} from './auth.service';
-import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-auth',
@@ -13,6 +13,7 @@ import {NgForm} from "@angular/forms";
 export class AuthPage implements OnInit {
 
   isLoading = false;
+  isLogin = true;
 
   constructor(
     private authService: AuthService,
@@ -48,5 +49,9 @@ export class AuthPage implements OnInit {
     console.log(form.value);
     console.log(JSON.stringify(form.value));
     console.log(form.controls);
+  }
+
+  onSwitchAuthMode() {
+    this.isLogin = !this.isLogin;
   }
 }
